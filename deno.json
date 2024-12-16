@@ -1,0 +1,14 @@
+{
+  "tasks": {
+    "dev": "deno run -A --node-modules-dir npm:vite",
+    "build": "deno run -A --node-modules-dir npm:vite build",
+    "build:icons": "deno run -A ./scripts/build-icons.ts"
+  },
+  "imports": {
+    "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.2",
+    "@phosphor-icons/core": "npm:@phosphor-icons/core@^2.1.1",
+    "@std/assert": "jsr:@std/assert@1",
+    "@std/path": "jsr:@std/path@^1.0.8",
+    "vite": "npm:vite@^6.0.3"
+  }
+}
