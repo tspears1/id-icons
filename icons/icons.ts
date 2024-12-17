@@ -1,3 +1,4 @@
+// deno-lint-ignore-file no-explicit-any
 import { symbolfy } from "../utils/symbolfy.ts"
 import { deepMerge } from "../utils/deep-merge.ts"
 
@@ -24,7 +25,8 @@ const generateIconObject = (name: string, svg: string, style: string, folder: st
                 [style]: {
                     id: `icon-${name}-${style}`,
                     svg: svg,
-                    symbol: symbolfy(`icon-${name}-${style}`, svg)
+                    symbol: symbolfy(`icon-${name}-${style}`, svg),
+                    data: `data:image/svg+xml,${encodeURIComponent(svg)}`
                 }
             }
         }
@@ -40,7 +42,11 @@ const iconData =[
     generateIconObject('instagram', InstagramThin, 'thin', 'social'),
 ]
 
-let icons = {}
+// TODO: add version and updated date as part of publish process.
+let icons: { [key: string]: any } = {
+    version: '1.0.0',
+    updated: new Date().toISOString(),
+}
 iconData.forEach(icon => {
     icons = deepMerge(icons, icon)
 })

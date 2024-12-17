@@ -2,7 +2,7 @@
   "tasks": {
     "dev": "deno run -A --node-modules-dir npm:vite",
     "build": "deno run -A --node-modules-dir npm:vite build",
-    "build:icons": "deno run -A ./scripts/build-icons.ts"
+    "build:icons": "deno task build && deno run -A ./scripts/build-icons.ts"
   },
   "imports": {
     "@deno/vite-plugin": "npm:@deno/vite-plugin@^1.0.2",
