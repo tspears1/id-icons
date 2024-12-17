@@ -1,9 +1,9 @@
 #!/usr/bin/env
-import { icons } from '../icons/icons.ts';
+import { icons } from '../dist/icons.mjs';
 import { join } from '@std/path/join';
 import { existsSync } from "jsr:@std/fs";
 
-// if (!existsSync(join(Deno.cwd(), '/dist'))) {
-//    Deno.mkdirSync(join(Deno.cwd(), '/dist'))
-// };
-Deno.writeTextFileSync(join(Deno.cwd(), 'icons.json'), JSON.stringify(icons));
+if (!existsSync(join(Deno.cwd(), '/lib'))) {
+   Deno.mkdirSync(join(Deno.cwd(), '/lib'))
+};
+Deno.writeTextFileSync(join(Deno.cwd(), '/lib/icons.json'), JSON.stringify(icons));
